@@ -1,4 +1,3 @@
-
 let users = [
   { username: "user1", name: "علی", password: "1234", balance: 5000, transactions: [] },
   { username: "user2", name: "محمد", password: "5678", balance: 3000, transactions: [] },
@@ -26,7 +25,7 @@ function checkLoginStatus() {
     currentUser = users.find(user => user.username === savedUsername);
     if (currentUser) {
       document.getElementById("auth-section").classList.add("d-none");
-      document.getElementById("account-section").classList.remove("d-none");
+      document.querySelector(".row").classList.remove("d-none");
       document.getElementById("user-info").classList.remove("d-none");
       document.getElementById("user-name").innerText = currentUser.name;
       updateBalance();
@@ -44,7 +43,7 @@ function login() {
   if (currentUser) {
     localStorage.setItem("currentUser", currentUser.username);
     document.getElementById("auth-section").classList.add("d-none");
-    document.getElementById("account-section").classList.remove("d-none");
+    document.querySelector(".row").classList.remove("d-none");
     document.getElementById("user-info").classList.remove("d-none");
     document.getElementById("user-name").innerText = currentUser.name;
     updateBalance();
@@ -164,7 +163,7 @@ function logout() {
   localStorage.removeItem("currentUser");
   currentUser = null;
   document.getElementById("auth-section").classList.remove("d-none");
-  document.getElementById("account-section").classList.add("d-none");
+  document.querySelector(".row").classList.add("d-none");
   document.getElementById("user-info").classList.add("d-none");
 }
 document.getElementById("sort-transactions-btn").addEventListener("click", sortTransactions);
